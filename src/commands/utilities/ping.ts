@@ -1,6 +1,6 @@
-import { client } from '../main';
-import { CommandContext } from '../models/command_context';
-import { Command } from './command';
+import { client } from '../../main';
+import { CommandContext } from '../../models/command_context';
+import { Command } from '../command';
 
 export class UtilityCommand implements Command {
   commandNames = ['ping'];
