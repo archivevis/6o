@@ -8,7 +8,7 @@ Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopski
 
 Clone the repository and `yarn install`.
 
-## Key Commands
+More commands: 
 
 | Command       | Description                            |
 | ------------- | -------------------------------------- |
@@ -17,3 +17,11 @@ Clone the repository and `yarn install`.
 | `yarn lint`   | Runs the linter on the code.           |
 | `yarn format` | Fixes most lint errors using Prettier. |
 | `yarn test`   | Run all tests.                         |
+
+## TODO
+
+- [ ] avatar grabber
+- [ ] weather grabber
+- [ ] music player
+  - [ ] soundcloud/spotify support?
+- [ ] weather checker
