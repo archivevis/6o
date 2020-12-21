@@ -2,7 +2,7 @@ import { client } from '../../main';
 import { CommandContext } from '../../models/command_context';
 import { Command } from '../command';
 
-export class UtilityCommand implements Command {
+export class Ping implements Command {
   commandNames = ['ping'];
 
   getHelpMessage(commandPrefix: string): string {

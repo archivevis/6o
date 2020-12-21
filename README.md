@@ -6,7 +6,7 @@ Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopski
 
 ## Configuration
 
-Clone the repository and `yarn install`.
+Clone the repository and `yarn install`. Then, `yarn run`.
 
 More commands: 
 
@@ -20,7 +20,7 @@ More commands:
 
 ## TODO
 
-- [ ] avatar grabber
+- [x] avatar grabber
 - [ ] weather checker
 - [ ] emote grabber?
 - [ ] music player

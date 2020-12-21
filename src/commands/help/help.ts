@@ -32,7 +32,7 @@ export class HelpCommand implements Command {
     );
     if (!matchedCommand) {
       await commandContext.originalMessage.channel.send(
-        "I don't know about that command :(. Try !help to find all commands you can use.",
+        "I don't know about that command :(. Try m!help to find all commands you can use.",
       );
       throw Error('Unrecognized command');
     }

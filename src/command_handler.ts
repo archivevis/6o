@@ -1,7 +1,8 @@
 import { Message } from 'discord.js';
 import { Command } from './commands/command';
-import { HelpCommand } from './commands/help';
-import { UtilityCommand } from './commands/ping';
+import { HelpCommand } from './commands/help/help';
+import { Avatar } from './commands/utilities/avatar';
+import { Ping } from './commands/utilities/ping';
 import { CommandContext } from './models/command_context';
 import { reactor } from './reactions/reactor';
 
@@ -14,7 +15,8 @@ export class CommandHandler {
   constructor(prefix: string) {
     const commandClasses = [
       // TODO: Add more commands here.
-      UtilityCommand,
+      Ping,
+      Avatar,
     ];
 
     this.commands = commandClasses.map((CommandClass) => new CommandClass());
@@ -38,10 +40,12 @@ export class CommandHandler {
     );
 
     if (!matchedCommand) {
-      await message.channel.send("I don't recognize that command. Try !help.");
+      await message.channel.send("I don't recognize that command. Try m!help.");
       await reactor.failure(message);
     } else if (!allowedCommands.includes(matchedCommand)) {
-      await message.reply("you aren't allowed to use that command. Try !help.");
+      await message.reply(
+        "you aren't allowed to use that command. Try m!help.",
+      );
       await reactor.failure(message);
     } else {
       await matchedCommand
