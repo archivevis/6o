@@ -10,11 +10,14 @@ export class Weather implements Command {
   commandNames = ['weather'];
 
   getHelpMessage(commandPrefix: string): string {
-    return `${commandPrefix}weather - fetches the weather from OpenWeatherAPI.`;
+    return `Fetches the weather from OpenWeatherAPI.
+**Usage**: \`${commandPrefix}weather [unit of measurement] [location]\`
+Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in F.`;
   }
 
-  nyarny = (
+  weatherembed = (
     currTemp: number,
+    feelTemp: number,
     minTemp: number,
     maxTemp: number,
     humidity: any,
@@ -29,16 +32,33 @@ export class Weather implements Command {
     new Discord.MessageEmbed()
       .setColor('#1da0f8')
       .setAuthor(`Hello, ${author}`)
-      .setTitle(`It's currently ${currTemp}\u00B0 in ${city}, ${country}`)
-      .addField(`Maximum Temperature`, `${maxTemp}\u00B0`, true)
-      .addField(`Minimum Temperature`, `${minTemp}\u00B0`, true)
+      .setTitle(
+        `It's currently ${currTemp}\u00B0${
+          units === 'imperial' ? 'F' : 'C'
+        } in ${city}, ${country}`,
+      )
+      .addField(
+        `Feels like`,
+        `${feelTemp}\u00B0${units === 'imperial' ? 'F' : 'C'}`,
+        true,
+      )
+      .addField(
+        `Max Temp`,
+        `${maxTemp}\u00B0${units === 'imperial' ? 'F' : 'C'}`,
+        true,
+      )
+      .addField(
+        `Min Temp`,
+        `${minTemp}\u00B0${units === 'imperial' ? 'F' : 'C'}`,
+        true,
+      )
       .addField(`Humidity`, `${humidity}%`, true)
       .addField(`Cloudiness`, `${cloudness} `, true)
       .setFooter(
         `If you want to see weather in ${
           units === 'imperial' ? 'Celsius' : 'Fahrenheit'
         }, try ${prefix}weather ${
-          units === 'imperial' ? '[c]/[celsius]' : '[f]/[fahrenheit]'
+          units === 'imperial' ? '[c]/[celsius] (optional)' : '[f]/[fahrenheit]'
         } [location]`,
       )
       .setThumbnail(`http://openweathermap.org/img/wn/${icon}@2x.png`);
@@ -87,8 +107,9 @@ export class Weather implements Command {
       return;
     }
 
-    const { temp, temp_min, temp_max } = APIData.data.main;
+    const { temp, feels_like, temp_min, temp_max } = APIData.data.main;
     const currTemp = Math.round(temp);
+    const feelTemp = Math.round(feels_like);
     const minTemp = Math.round(temp_min);
     const maxTemp = Math.round(temp_max);
     const { humidity } = APIData.data.main;
@@ -98,8 +119,9 @@ export class Weather implements Command {
     const { icon } = APIData.data.weather[0];
     const author = parsedUserCommand.originalMessage.author.username;
     parsedUserCommand.originalMessage.reply(
-      this.nyarny(
+      this.weatherembed(
         currTemp,
+        feelTemp,
         minTemp,
         maxTemp,
         humidity,

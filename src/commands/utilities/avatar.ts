@@ -1,3 +1,4 @@
+import Discord from 'discord.js';
 import { CommandContext } from '../../models/command_context';
 import { Command } from '../command';
 
@@ -5,8 +6,15 @@ export class Avatar implements Command {
   commandNames = ['avatar', 'av', 'avi', 'pfp'];
 
   getHelpMessage(commandPrefix: string): string {
-    return `${commandPrefix}avatar - grabs the avatar of one user (you by default).`;
+    return `Grabs the avatar of one user (you by default).
+Usage: \`${commandPrefix}avatar [user - optional]\``;
   }
+
+  aviEmbed = (username: string, image: string) =>
+    new Discord.MessageEmbed()
+      .setColor('RANDOM')
+      .setTitle(`${username}'s avatar`)
+      .setImage(image);
 
   async run(parsedUserCommand: CommandContext): Promise<void> {
     let mention = parsedUserCommand.originalMessage.mentions.users.first();
@@ -23,7 +31,7 @@ export class Avatar implements Command {
     }
 
     await parsedUserCommand.originalMessage.channel.send(
-      `${mention.username}'s avatar: ${avatarURL}`,
+      this.aviEmbed(mention.username, avatarURL),
     );
   }
 

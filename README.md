@@ -21,7 +21,7 @@ More commands:
 ## TODO
 
 - [x] avatar grabber
-- [ ] weather checker
+- [x] weather checker
 - [ ] emote grabber?
 - [ ] music player
   - [ ] soundcloud/spotify support?
