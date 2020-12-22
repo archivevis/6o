@@ -5,7 +5,7 @@ A Discord bot, based off a [horrible joke](https://twitter.com/NoContextGidle/st
 Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopskipnfall/discord-typescript-bot).
 
 ## Configuration
-
+Make a copy of `sample.config.ts`, add your [OpenWeatherMap](https://openweathermap.org/) and Discord API keys to it, and save that as `config.ts`.
 Clone the repository and `yarn install`. Then, `yarn run`.
 
 More commands: 
