@@ -3,6 +3,7 @@ import { Command } from './commands/command';
 import { HelpCommand } from './commands/help/help';
 import { Avatar } from './commands/utilities/avatar';
 import { Ping } from './commands/utilities/ping';
+import { Weather } from './commands/utilities/weather';
 import { CommandContext } from './models/command_context';
 import { reactor } from './reactions/reactor';
 
@@ -17,6 +18,7 @@ export class CommandHandler {
       // TODO: Add more commands here.
       Ping,
       Avatar,
+      Weather,
     ];
 
     this.commands = commandClasses.map((CommandClass) => new CommandClass());
