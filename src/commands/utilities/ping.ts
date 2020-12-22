@@ -10,12 +10,12 @@ export class Ping implements Command {
   }
 
   async run(parsedUserCommand: CommandContext): Promise<void> {
-    const resMsg = await parsedUserCommand.originalMessage.channel.send(
+    const message = await parsedUserCommand.originalMessage.channel.send(
       'Pong! 🏓',
     );
-    resMsg.edit(
+    message.edit(
       `🏓 Ping: ${Math.round(
-        resMsg.createdTimestamp -
+        message.createdTimestamp -
           parsedUserCommand.originalMessage.createdTimestamp -
           client.ws.ping,
       )}ms`,
