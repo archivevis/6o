@@ -6,6 +6,7 @@ Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopski
 
 ## Configuration
 Make a copy of `sample.config.ts`, add your [OpenWeatherMap](https://openweathermap.org/) and Discord API keys to it, and save that as `config.ts`.
+
 Clone the repository and `yarn install`. Then, `yarn run`.
 
 More commands: 
