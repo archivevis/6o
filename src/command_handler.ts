@@ -1,5 +1,6 @@
 import { Message } from 'discord.js';
 import { Command } from './commands/command';
+import { Bonk } from './commands/fun/bonk';
 import { HelpCommand } from './commands/help/help';
 import { Avatar } from './commands/utilities/avatar';
 import { Ping } from './commands/utilities/ping';
@@ -19,6 +20,7 @@ export class CommandHandler {
       Ping,
       Avatar,
       Weather,
+      Bonk,
     ];
 
     this.commands = commandClasses.map((CommandClass) => new CommandClass());
@@ -63,6 +65,6 @@ export class CommandHandler {
 
   /** Determines whether or not a message is a user command. */
   private isCommand(message: Message): boolean {
-    return message.content.startsWith(this.prefix);
+    return message.content.startsWith(this.prefix.toLowerCase());
   }
 }

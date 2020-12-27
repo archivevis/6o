@@ -10,10 +10,10 @@ export class Avatar implements Command {
 Usage: \`${commandPrefix}avatar [user - optional]\``;
   }
 
-  aviEmbed = (username: string, image: string) =>
+  aviEmbed = (username: string, tag: string, image: string) =>
     new Discord.MessageEmbed()
       .setColor('RANDOM')
-      .setTitle(`${username}'s avatar`)
+      .setTitle(`${username}#${tag}'s avatar`)
       .setImage(image);
 
   async run(parsedUserCommand: CommandContext): Promise<void> {
@@ -31,7 +31,7 @@ Usage: \`${commandPrefix}avatar [user - optional]\``;
     }
 
     await parsedUserCommand.originalMessage.channel.send(
-      this.aviEmbed(mention.username, avatarURL),
+      this.aviEmbed(mention.username, mention.tag, avatarURL),
     );
   }
 

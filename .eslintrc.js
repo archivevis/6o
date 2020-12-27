@@ -44,6 +44,7 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'warn',
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
   },
   ignorePatterns: ['dist/**', 'coverage/**'],
 };

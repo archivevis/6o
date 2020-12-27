@@ -66,7 +66,7 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
   async run(parsedUserCommand: CommandContext): Promise<void> {
     // chooses to display in C or F, C is default
     let units = 'metric';
-    // make copy of arguments with 1 sliced off in case i need to remove the argument of F/C
+    // make copy of arguments to slice 1 off in case i need to remove the argument of F/C
     // eslint-disable-next-line prefer-const
     let sarny = parsedUserCommand.args;
 
@@ -93,10 +93,15 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
       sarny.shift();
     }
 
-    sarny.toString();
+    // making location a string for cases like New York
+    let location = '';
+
+    for (let x = 0; x < sarny.length; x++) {
+      location += `${sarny[x]} `;
+    }
 
     const APIData = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${sarny}&units=${units}&APPID=${config.openAPIKey}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&APPID=${config.openAPIKey}`,
     );
 
     // fool proof!
