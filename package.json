@@ -23,6 +23,7 @@
     "@discordjs/opus": "^0.3.3",
     "axios": "^0.21.0",
     "canvas": "^2.6.1",
+    "discord-music-player": "^6.3.5",
     "discord.js": "12.3.x",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",

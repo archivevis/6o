@@ -22,9 +22,6 @@ coverage
 # Ensure config isn't being committed
 src/config/config.ts
 
-# Music is still a WIP
-src/commands/music/play.ts
-
 # Dependency directory
 node_modules
 bower_components
