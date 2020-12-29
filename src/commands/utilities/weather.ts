@@ -76,21 +76,13 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
       );
       return;
     }
-
-    if (
-      parsedUserCommand.args[0] === 'f' ||
-      parsedUserCommand.args[0] === 'fahrenheit'
-    ) {
-      units = 'imperial';
-      sarny.shift();
-    }
-
-    // if, for some reason, someone wants to type in celsius
-    if (
-      parsedUserCommand.args[0] === 'c' ||
-      parsedUserCommand.args[0] === 'celsius'
-    ) {
-      sarny.shift();
+    const validTemps = ['f', 'fahrenheit', 'c', 'celsius'];
+    // pops the first argument only if it's a unit of measurement
+    if (validTemps.includes(sarny[0])) {
+      const unitArg = sarny.shift();
+      if (unitArg === 'f' || unitArg === 'fahrenheit') {
+        units = 'imperial';
+      }
     }
 
     // making location a string for cases like New York
