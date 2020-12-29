@@ -76,6 +76,7 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
       );
       return;
     }
+
     const validTemps = ['f', 'fahrenheit', 'c', 'celsius'];
     // pops the first argument only if it's a unit of measurement
     if (validTemps.includes(sarny[0])) {
@@ -83,6 +84,13 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
       if (unitArg === 'f' || unitArg === 'fahrenheit') {
         units = 'imperial';
       }
+    }
+
+    if (!sarny) {
+      parsedUserCommand.originalMessage.channel.send(
+        'Please provide a location!',
+      );
+      return;
     }
 
     // making location a string for cases like New York
