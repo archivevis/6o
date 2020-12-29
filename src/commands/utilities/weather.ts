@@ -70,6 +70,7 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
     // eslint-disable-next-line prefer-const
     let sarny = parsedUserCommand.args;
 
+    // check if arguments are empty first
     if (!parsedUserCommand.args) {
       parsedUserCommand.originalMessage.channel.send(
         'Please provide a location!',
@@ -86,6 +87,7 @@ Units of measurement default to Celsius - use \`f/fahrenheit\` if you want it in
       }
     }
 
+    // another check after units have been removed
     if (!sarny) {
       parsedUserCommand.originalMessage.channel.send(
         'Please provide a location!',
