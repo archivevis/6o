@@ -1,10 +1,10 @@
-# Miyeonie
+# THIS CODE IS SUPER OLD AND EVERYTHING - I'M IN THE PROCESS OF REWRITING IT. I'LL MAKE A NEW REPO EVENTUALLY 
+
+## Miyeonie
 
 A Discord bot, based off a [horrible joke](https://twitter.com/NoContextGidle/status/1321301150856073223) involving (G)I-DLE's Miyeon and her inability to solve captchas.
 
 Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopskipnfall/discord-typescript-bot).
-
-**AS I AM CURRENTLY FOCUSING FULL-TIME ON SCHOOLING, THIS PROJECT WILL BE PUT ON HOLD. I DO PLAN ON REFACTORING AND IMPLEMENTING A MUSIC PLAYER**
 
 ## Configuration
 Make a copy of `sample.config.ts`, add your [OpenWeatherMap](https://openweathermap.org/) and Discord API keys to it, and save that as `config.ts`.
