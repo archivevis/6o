@@ -1,8 +1,8 @@
 # THIS CODE IS SUPER OLD AND EVERYTHING - I'M IN THE PROCESS OF REWRITING IT. I'LL MAKE A NEW REPO EVENTUALLY 
 
-## Miyeonie
+## 6O
 
-A Discord bot, based off a [horrible joke](https://twitter.com/NoContextGidle/status/1321301150856073223) involving (G)I-DLE's Miyeon and her inability to solve captchas.
+A test Discord bot to learn TypeScript. Formerly named Miyeonie, I plan on using that name for a more music-focused bot
 
 Built off [hopskipnfall's Discord TypeScript template](https://github.com/hopskipnfall/discord-typescript-bot).
 
